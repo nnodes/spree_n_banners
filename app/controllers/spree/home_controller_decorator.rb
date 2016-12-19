@@ -1,5 +1,5 @@
 module Spree
-  HomController.class_eval do
+  HomeController.class_eval do
     def index
       @searcher = build_searcher(params.merge(include_images: true))
       @products = @searcher.retrieve_products
