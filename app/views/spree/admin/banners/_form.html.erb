@@ -1,0 +1,38 @@
+<%= simple_form_for([:admin, @banner], wrapper: false, label: false) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <label class="control-label">Imagen*</label>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group" style="width:100%">
+          <span class="input-group-btn" style="display: table-cell;">
+            <span class="btn btn-primary btn-file" style="width:100%;">
+              Elegir imagen <%= f.input :image, label: false %>
+            </span>
+          </span>
+          <input type="text" class="form-control btn-file-input" readonly>
+        </div>
+        <p class="hint-p"><%= Spree.t(:filehint) %> 1300px x 300px</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label">Order*</label>
+        <%= f.input :order, input_html: { class: 'form-control' }, label: false %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label">Activo*</label>
+        <%= f.input :active, input_html: { class: 'inline-checkbox' }, label: false %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">HTML</label>
+    <%= f.input :html, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, class: 'form-control', label: false %>
+  </div>
+<% end %>

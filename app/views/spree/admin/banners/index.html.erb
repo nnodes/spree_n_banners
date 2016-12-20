@@ -1,0 +1,64 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:banners) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_banner), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_banner' } %>
+<% end if can?(:create, Spree::Banner) %>
+<div id="carousel-example-generic-home" class="carousel slide" data-ride="carousel" style="overflow: hidden;">
+
+  <div class="carousel-inner carousel-big" role="listbox">
+    <% first = true %>
+    <% indicators = 0 %>
+    <% @banners.order(:order).each do |banner| %>
+      <% if banner.active %>
+        <% indicators += 1 %>
+        <div class="item <%= 'active' if first %>">
+          <% first = false %>
+          <%= image_tag banner.image, class: "img-responsive center-block" %>
+          <div class="carousel-caption"><%= banner.html.html_safe %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% if indicators > 1 %>
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic-home" data-slide-to="0" class="active"></li>
+    <% for i in 1..(indicators-1) %>
+        <li data-target="#carousel-example-generic-home" data-slide-to="<%= i %>"></li>
+    <% end %>
+    </ol>
+    <a class="left carousel-control" href="#carousel-example-generic-home" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic-home" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  <% end %>
+</div>
+<table class="table" id="listing_products">
+  <thead>
+    <tr data-hook="admin_products_index_headers">
+        <th colspan="2"><%= Spree.t(:image) %></th>
+        <th><%=  Spree.t(:active) %></th>
+        <th><%= Spree.t(:banner_order) %></th>
+        <th data-hook="admin_banners_index_header_actions" class="actions"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @banners.order(:order).each do |banner| %>
+      <tr id="<%= spree_dom_id banner %>" data-hook="admin_banners_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td colspan="2"><%= banner.image.to_s.split(/\//).last.split(/\?/)[0] %></td>
+        <td><%= banner.active %></td>
+        <td><%= banner.order %></td>
+        <td class="actions actions-3 text-right" data-hook="admin_banners_index_row_actions">
+          <%# link_to 'Vista Previa', admin_banner_path(banner), no_text: true if can?(:show, banner) %>
+          <%= link_to_edit banner, no_text: true, class: 'edit' if can?(:edit, banner) %>
+          <%= link_to_delete banner, no_text: true if can?(:delete, banner) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

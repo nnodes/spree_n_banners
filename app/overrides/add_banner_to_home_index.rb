@@ -1,6 +1,6 @@
 Deface::Override.new(:virtual_path => 'spree/home/index',
   :name => 'add_banner_to_home_index',
-  :insert_top => "[data-hook='homepage_products']",
+  :insert_after => "[data-hook='homepage_products']",
   :text => '
     <div id="carousel-example-generic-home" class="carousel slide" data-ride="carousel" style="overflow: hidden;margin-left:-15px;margin-right:-15px;">
       <div class="carousel-inner carousel-big" role="listbox">

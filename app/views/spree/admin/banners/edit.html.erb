@@ -1,0 +1,23 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @banner } %>
+<%= javascript_include_tag Ckeditor.cdn_url %>
+
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:banners), spree.admin_banners_url %> /
+  <%= Spree.t(:edit_banner) %>
+<% end %>
+
+<div data-hook="admin_banner_edit_form_header">
+  <%= render 'spree/shared/error_messages', target: @banner %>
+</div>
+
+<div data-hook="admin_banner_edit_form">
+  <%= form_for [:admin, @banner], html: { multipart: true } do |f| %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'show', f: f %>
+        <%= render 'form', f: f %>
+        <%= render 'spree/admin/shared/edit_resource_links' %>
+      </div>
+    </div>
+  <% end %>
+</div>

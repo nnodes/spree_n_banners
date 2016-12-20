@@ -19,8 +19,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 3.1.0'
   s.add_dependency 'ckeditor', '~> 4.1.3'
-  # s.add_dependency 'spree_backend', '>= 3.1.0', '< 4.0'
-  s.add_dependency 'spree_frontend', '>= 3.1.0'
+  s.add_dependency 'simple_form'
+  # s.add_dependency 'spree_backend', '>= 3.1.0'
+  # s.add_dependency 'spree_frontend', '>= 3.1.0'
 
   s.add_development_dependency 'capybara', '~> 2.6'
   s.add_development_dependency 'coffee-rails'
