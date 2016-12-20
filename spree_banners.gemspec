@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.1.0'
+  # s.add_dependency 'spree_core', '~> 3.1.0'
   s.add_dependency 'ckeditor', '~> 4.1.3'
   s.add_dependency 'simple_form'
   # s.add_dependency 'spree_backend', '>= 3.1.0'
