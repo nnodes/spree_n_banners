@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_banners'
   s.version     = '3.1.3'
-  s.summary     = 'Add banners and its respective admin menu.'
+  s.summary     = 'Adds a banner and its respective admin menu.'
   # s.description = 'TODO: Add (optional) gem description here'
   s.required_ruby_version = '>= 2.1.0'
 
