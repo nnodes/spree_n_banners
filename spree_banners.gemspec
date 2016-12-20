@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   # s.description = 'TODO: Add (optional) gem description here'
   s.required_ruby_version = '>= 2.1.0'
 
-  s.authors    = 'Nicolas Kappes'
+  s.authors    = 'NNodes'
   # s.email     = 'you@example.com'
   # s.homepage  = 'http://www.spreecommerce.com'
   s.license = 'BSD-3'
