@@ -7,7 +7,7 @@ Spree Extension to add a banner to the homepage and its corresponding admin menu
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_banners', github: '[your-github-handle]/spree_banners', branch: '3-1-stable'
+  gem 'spree_banners', github: 'nnodes/spree_n_banners'
   ```
 
 2. Install the gem using Bundler:
@@ -23,8 +23,3 @@ Spree Extension to add a banner to the homepage and its corresponding admin menu
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
-
-
-## Contributing
-
-Copyright (c) 2016 NNodes, released under the New BSD License
