@@ -3,7 +3,7 @@
 
 <% content_for :page_title do %>
   <%= link_to Spree.t(:banners), spree.admin_banners_url %> /
-  <%= Spree.t(:edit_banner) %>
+  <%= Spree.t(:edit_banner, scope: :n_spree_banners) %>
 <% end %>
 
 <div data-hook="admin_banner_edit_form_header">

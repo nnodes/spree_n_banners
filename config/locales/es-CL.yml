@@ -1,0 +1,12 @@
+es-CL:
+  activerecord:
+    attributes:
+      spree/banner:
+        order: Orden
+        image: Imagen
+        active: Activo
+  spree:
+    n_spree_banners:
+      edit_banner: Editar Banner
+      new_banner: Nuevo Banner
+      banner_order: Orden
