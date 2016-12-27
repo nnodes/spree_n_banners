@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:new_banner, scope: :n_spree_banners), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_banner' } %>
+  <%= button_link_to Spree.t(:new_banner, scope: :spree_n_banners), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_banner' } %>
 <% end if can?(:create, Spree::Banner) %>
 <div id="carousel-banner" class="carousel slide" data-ride="carousel" data-hook="banner_index">
 
@@ -43,7 +43,7 @@
     <tr data-hook="admin_products_index_headers">
         <th colspan="2"><%= Spree.t(:image) %></th>
         <th><%=  Spree.t(:active) %></th>
-        <th><%= Spree.t(:banner_order, scope: :n_spree_banners) %></th>
+        <th><%= Spree.t(:banner_order, scope: :spree_n_banners) %></th>
         <th data-hook="admin_banners_index_header_actions" class="actions"></th>
       </tr>
   </thead>

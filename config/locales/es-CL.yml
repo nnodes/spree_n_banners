@@ -6,8 +6,8 @@ es-CL:
         image: Imagen
         active: Activo
   spree:
-    n_spree_banners:
+    spree_n_banners:
       edit_banner: Editar Banner
       new_banner: Nuevo Banner
       banner_order: Orden
-      order: Orden
+      active: Activo
