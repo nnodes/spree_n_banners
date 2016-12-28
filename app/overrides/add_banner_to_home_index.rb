@@ -34,4 +34,5 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
         </a>
       <% end %>
     </div>
-  ')
+  ',
+  :original => '461aae32b5912b8551fcf3a823427507f434a0cc')

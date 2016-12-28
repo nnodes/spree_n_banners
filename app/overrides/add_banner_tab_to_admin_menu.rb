@@ -7,4 +7,5 @@ Deface::Override.new(:virtual_path => 'spree/admin/shared/_main_menu',
       <%= tab :banners, icon: "picture" %>
     </ul>
   <% end %>
-  ')
+  ',
+  :original => 'b5fc1c7d68402c7ff3cdfd1b4352a9b0feed460d')
