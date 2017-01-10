@@ -1,6 +1,6 @@
 <%= simple_form_for([:admin, @banner], wrapper: false, label: false) do |f| %>
   <%= f.error_notification %>
-
+  Ingrese un video o una imagen:
   <div class="form-group" data-hook="banner_form_image">
     <label class="control-label">Imagen*</label>
     <div class="row">
@@ -13,6 +13,14 @@
           </span>
           <input type="text" class="form-control btn-file-input" readonly>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6" data-hook="banner_form_order">
+      <div class="form-group">
+        <label class="control-label"><%= Spree.t(:banner_video, scope: :spree_n_banners) %>*</label>
+        <%= f.input :video_url, input_html: { class: 'form-control' }, label: false %>
       </div>
     </div>
   </div>
