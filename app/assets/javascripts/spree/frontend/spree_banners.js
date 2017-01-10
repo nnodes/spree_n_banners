@@ -8,9 +8,6 @@ var vimeo_carousel = function() {
       var player = $f(iframe),
           status = $('.status');
       player.api('setVolume', 0);
-      if ($(iframe).attr('data-index') == 0){
-        player.api('play');
-      }
       player.addEvent('finish', function(event) {
         $('#carousel-banner').carousel({interval: 5000});
         $('#carousel-banner').carousel('next');
@@ -24,6 +21,9 @@ var vimeo_carousel = function() {
       player.addEvent('pause', function(event) {
         $('#carousel-banner').carousel({interval: 5000});
       });
+      if ($(iframe).attr('data-index') == 0){
+        player.api('play');
+      }
     });
   });
 };
@@ -34,7 +34,7 @@ $(document).ready(function(){
     $.each($('iframe[id*="player_"'), function(i, iframe) {
       var player = $f(iframe),
           status = $('.status');
-      if ($(this).parent().closest('div').attr('class') == 'item active'){
+      if ($(this).parent().parent().hasClass('active')){
         player.api('play');
       } else {
         player.api('pause');
