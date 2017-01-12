@@ -12,10 +12,10 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
             <div class="item <%= "active" if first %>">
               <% first = false %>
                 <% if banner.video_url.present? %>
-                  <div class="embed-responsive">
+                  <div class="banner-video-class">
                     <iframe id="player_<%=banner.video_id%>" 
                     src="https://player.vimeo.com/video/<%=banner.video_id%>?
-                    api=1&player_id=player_<%=banner.video_id%>&autoplay=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    api=1&player_id=player_<%=banner.video_id%>&autoplay=0"></iframe>
                   </div>
                 <% else %>
                   <%= image_tag banner.image, class: "img-responsive center-block" %>
