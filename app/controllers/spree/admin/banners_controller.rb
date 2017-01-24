@@ -23,7 +23,7 @@ module Spree
       private
 
         def banner_params
-          params.require(:banner).permit(:image, :order, :html, :active)
+          params.require(:banner).permit(:image, :video_url, :order, :html, :active)
         end
 
     end
