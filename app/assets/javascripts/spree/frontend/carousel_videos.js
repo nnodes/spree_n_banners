@@ -75,6 +75,14 @@ function loadScript() {
 
 function youtube_carousel(){
   loadScript();
+  var iframes = $('iframe[id*="youtube-player"');
+  $.each(iframes, function(i, iframe) {
+    iframe.addEventListener('load', function(){
+      if ($(iframe).attr('data-index') == 0){
+        ytplayer.playVideo();
+      }
+    });
+  });
 }
 
 $(document).ready(function(){
