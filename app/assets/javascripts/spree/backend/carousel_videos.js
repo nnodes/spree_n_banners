@@ -79,7 +79,10 @@ function youtube_carousel(){
 
 $(document).ready(function(){
   vimeo_carousel();
-  youtube_carousel();
+  if($('#youtube-player').length > 0){
+    youtube_carousel();  
+  }
+  
   $('#carousel-banner').bind('slid.bs.carousel', function (e) {
     $.each($('iframe[id*="player_"'), function(i, iframe) {
       var player = $f(iframe),
