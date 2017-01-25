@@ -19,7 +19,7 @@ var vimeo_carousel = function() {
       player.addEvent('pause', function(event) {
         $('#carousel-banner').carousel({interval: 5000});
       });
-      if ($(iframe).attr('data-index') == 0){
+      if ($(iframe).data('index') == 1){
         player.api('play');
       }
     });
@@ -45,6 +45,14 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   event.target.mute();
+  var iframes = $('iframe[id*="youtube-player"');
+  $.each(iframes, function(i, iframe) {
+    iframe.addEventListener('load', function(){
+      if ($(iframe).data('index') == 1){
+        ytplayer.playVideo();
+      }
+    });
+  });
 }
 
 var done = false;
@@ -75,14 +83,6 @@ function loadScript() {
 
 function youtube_carousel(){
   loadScript();
-  var iframes = $('iframe[id*="youtube-player"');
-  $.each(iframes, function(i, iframe) {
-    iframe.addEventListener('load', function(){
-      if ($(iframe).attr('data-index') == 0){
-        ytplayer.playVideo();
-      }
-    });
-  });
 }
 
 $(document).ready(function(){

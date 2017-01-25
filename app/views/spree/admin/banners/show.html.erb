@@ -10,9 +10,9 @@
           <%= javascript_include_tag "spree/backend/carousel_videos.js" %>
           <div class="banner-video-class">
             <% if @banner.check_video_type %>
-              <%= embed(@banner.video_id) %>
+              <%= embed(@banner.video_id, 1) %>
             <% else %>
-              <div id="youtube-player" data-videoid="<%= @banner.video_id %>"></div>
+              <div id="youtube-player" data-videoid="<%= @banner.video_id %>" data-index="<%= 1 %>"></div>
             <% end %>
           </div>
         <% else %>

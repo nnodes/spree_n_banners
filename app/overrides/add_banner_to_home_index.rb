@@ -15,9 +15,9 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
                   <%= javascript_include_tag "spree/frontend/carousel_videos.js" %>
                   <div class="banner-video-class">
                     <% if banner.check_video_type %>
-                      <%= embed(banner.video_id) %>
+                      <%= embed(banner.video_id, indicators) %>
                     <% else %>
-                      <div id="youtube-player" data-videoid="<%= banner.video_id %>"></div>
+                      <div id="youtube-player" data-videoid="<%= banner.video_id %>" data-index="<%= indicators %>"></div>
                     <% end %>
                   </div>
                 <% else %>
