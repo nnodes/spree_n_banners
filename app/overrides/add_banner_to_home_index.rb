@@ -2,6 +2,7 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
   :name => 'add_banner_to_home_index',
   :insert_top => "[data-hook='homepage_products']",
   :text => '
+    <%= javascript_include_tag "spree/frontend/carousel_videos.js" %>
     <div id="carousel-banner" class="carousel slide" data-ride="carousel" data-hook="homepage_banner_carousel">
       <div class="carousel-inner" role="listbox">
         <% first = true %>
@@ -13,9 +14,11 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
               <% first = false %>
                 <% if banner.video_url.present? %>
                   <div class="banner-video-class">
-                    <iframe id="player_<%=banner.video_id%>" 
-                    src="https://player.vimeo.com/video/<%=banner.video_id%>?
-                    api=1&player_id=player_<%=banner.video_id%>&autoplay=0"></iframe>
+                    <% if banner.check_video_type %>
+                      <%= embed(banner.video_id) %>
+                    <% else %>
+                      <div id="youtube-player" data-videoid="<%= banner.video_id %>"></div>
+                    <% end %>
                   </div>
                 <% else %>
                   <%= image_tag banner.image, class: "img-responsive center-block" %>

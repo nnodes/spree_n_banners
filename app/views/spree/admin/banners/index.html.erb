@@ -1,3 +1,4 @@
+<%= javascript_include_tag "spree/backend/carousel_videos.js" %>
 <% content_for :page_title do %>
   <%= Spree.t(:banners) %>
 <% end %>
@@ -17,9 +18,11 @@
           <% first = false %>
           <% if banner.video_url.present? %>
             <div class="banner-video-class">
-              <iframe id="player_<%=banner.video_id%>" 
-              src="https://player.vimeo.com/video/<%=banner.video_id%>?
-              api=1&player_id=player_<%=banner.video_id%>&autoplay=0"></iframe>
+              <% if banner.check_video_type %>
+                <%= embed(banner.video_id) %>
+              <% else %>
+                <div id="youtube-player" data-videoid="<%= banner.video_id %>"></div>
+              <% end %>
             </div>
           <% else %>
             <%= image_tag banner.image, class: "img-responsive center-block" %>

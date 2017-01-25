@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class BannersController < ResourceController
-      
+      helper 'spree/banners'
       def index
         @banners = Spree::Banner.all
       end
