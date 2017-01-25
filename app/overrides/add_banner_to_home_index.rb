@@ -2,7 +2,6 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
   :name => 'add_banner_to_home_index',
   :insert_top => "[data-hook='homepage_products']",
   :text => '
-    <%= javascript_include_tag "spree/frontend/carousel_videos.js" %>
     <div id="carousel-banner" class="carousel slide" data-ride="carousel" data-hook="homepage_banner_carousel">
       <div class="carousel-inner" role="listbox">
         <% first = true %>
@@ -13,6 +12,7 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
             <div class="item <%= "active" if first %>">
               <% first = false %>
                 <% if banner.video_url.present? %>
+                  <%= javascript_include_tag "spree/frontend/carousel_videos.js" %>
                   <div class="banner-video-class">
                     <% if banner.check_video_type %>
                       <%= embed(banner.video_id) %>

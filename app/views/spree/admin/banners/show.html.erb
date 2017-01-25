@@ -1,4 +1,3 @@
-<%= javascript_include_tag "spree/backend/carousel_videos.js" %>
 <div>
   <div id="carousel-banner" class="carousel slide" data-ride="carousel" data-hook="banner_show">
     <ol class="carousel-indicators">
@@ -8,6 +7,7 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <% if @banner.video_url.present? %>
+          <%= javascript_include_tag "spree/backend/carousel_videos.js" %>
           <div class="banner-video-class">
             <% if @banner.check_video_type %>
               <%= embed(@banner.video_id) %>
