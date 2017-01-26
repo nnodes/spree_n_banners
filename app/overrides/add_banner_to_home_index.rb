@@ -17,7 +17,7 @@ Deface::Override.new(:virtual_path => 'spree/home/index',
                     <% if banner.check_video_type %>
                       <%= embed(banner.video_id, indicators) %>
                     <% else %>
-                      <div id="youtube-player" data-videoid="<%= banner.video_id %>" data-index="<%= indicators %>"></div>
+                      <div id="youtube-player-<%= banner.video_id %>" data-videoid="<%= banner.video_id %>" data-index="<%= indicators %>"></div>
                     <% end %>
                   </div>
                 <% else %>
